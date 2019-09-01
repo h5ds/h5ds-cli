@@ -1,0 +1,41 @@
+{
+  "name": "h5ds-cli",
+  "version": "0.0.1",
+  "description": "The cli tools for h5ds",
+  "main": "index.js",
+  "bin": {
+    "h5ds": "./bin/h5ds"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "check": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h5ds/h5ds-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/h5ds/h5ds-cli/issues"
+  },
+  "homepage": "https://github.com/h5ds/h5ds-cli#readme",
+  "engines": {
+    "node": ">8.x"
+  },
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/commander": "^2.12.2",
+    "@types/inquirer": "^6.5.0",
+    "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^3.0.1",
+    "inquirer": "^7.0.0"
+  }
+}
