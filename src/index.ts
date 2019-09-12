@@ -1,16 +1,16 @@
-import * as commander from 'commander';
-import { InitCommand } from './commands';
+import * as program from 'commander';
+import { InitCommand, StartCommand, PluginCommand } from './commands';
 const packageJson = require('../package.json');
 
 const version = `h5ds-cli: ${packageJson.version}`;
 
-commander
+program
   .version(version)
   .description('h5ds cli tool')
   .usage('<command> [options]');
 
 // 初始化项目
-commander
+program
   .command('init [version]')
   .description('Init h5ds editor')
   .action((...args) => {
@@ -18,10 +18,28 @@ commander
     new InitCommand({ args, cmd });
   });
 
+// 启动开发
+program
+  .command('start')
+  .description('Run dev environment')
+  .action((...args) => {
+    const cmd = args.pop();
+    new StartCommand({ args, cmd });
+  });
+
+// 创建插件
+program
+  .command('plugin <action>')
+  .description('Plugin create/build/publish')
+  .action((...args) => {
+    const cmd = args.pop();
+    new PluginCommand({ args, cmd });
+  });
+
 // 解析命令
-commander.parse(process.argv);
+program.parse(process.argv);
 
 //如果直接使用，那么显示help
 if (process.argv.length === 2) {
-  commander.outputHelp();
+  program.outputHelp();
 }
